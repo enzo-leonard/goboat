@@ -1,3 +1,26 @@
+#sticky-header {
+
+}
+
+.sticky-header {
+  position: fixed;
+	width: 100%;
+	transition: top 0.3s;
+	background: white;
+	z-index: 2;
+  border-bottom: 1px solid #eee;
+  top: 0;
+  width: 100%;
+  left: 0;
+}
+
+#search-index {
+  margin: 0 auto;
+  margin-top: 0px;
+  max-width: 1600px;
+  margin-top: 10px;
+}
+
 .grid {
   flex-grow: 1;
   display: grid;
@@ -62,4 +85,8 @@
   margin-right: 5px;
 }
 
+.field {
+  width: 21%;
+  margin-right: 10px;
+}
 
