@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_113542) do
+ActiveRecord::Schema.define(version: 2019_11_12_120604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2019_11_12_113542) do
     t.string "photo"
     t.string "category"
     t.string "city"
-    t.integer "long"
-    t.integer "lat"
+    t.float "long"
+    t.float "lat"
     t.text "description"
     t.integer "capacity"
     t.integer "price"
