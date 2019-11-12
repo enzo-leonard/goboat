@@ -1,23 +1,42 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Boats</h1>
-
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <div class="search-box">
+    <h1>Réservez un bateau <strong>en quelques clics</strong>!</h1>
+      <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+      <div class="search-form-control form-group">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<div class="section-category">
+  <div class="container">
+    <h1>Boats</h1>
+      <% @boats.each do |boat| %>
+        <div class="card-trip">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="card-trip-infos">
+            <div>
+              <h2>boat.name</h2>
+              <p><%= boat.category %> in <%= boat.city %></p>
+            </div>
+            <h2 class="card-trip-pricing"><%= boat.price %></h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to 'New Boat', new_boat_path %>
+</div>
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Photo</th>
-      <th>Category</th>
-      <th>City</th>
-      <th>Long</th>
-      <th>Lat</th>
-      <th>Price</th>
-      <th>Available</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @boats.each do |boat| %>
       <tr>
@@ -37,7 +56,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Boat', new_boat_path %>
