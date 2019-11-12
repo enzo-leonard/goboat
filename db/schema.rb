@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 2019_11_12_113542) do
     t.string "city"
     t.integer "long"
     t.integer "lat"
-    t.text "description"
-    t.integer "capacity"
     t.integer "price"
     t.boolean "available"
     t.bigint "user_id", null: false
