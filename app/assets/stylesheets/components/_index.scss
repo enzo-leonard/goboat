@@ -6,7 +6,17 @@
 @import "footer";
 @import "card";
 @import "button";
+@import "review";
 
 .section-category {
   height: 60vh;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.section-review {
+  height: 60vh;
+  margin-top: 30px;
+  background:white;
+  padding: 20px;
 }

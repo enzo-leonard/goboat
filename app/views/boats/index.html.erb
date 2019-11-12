@@ -18,7 +18,54 @@
 </div>
 <div class="section-category">
   <div class="container">
-    <h1>Boats</h1>
+    <h2>Boats types</h2>
+    <div class="grid">
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>Title here</h2>
+            <p>Short description here!</p>
+          </div>
+          <h2 class="card-trip-pricing">£99.99</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>Title here</h2>
+            <p>Short description here!</p>
+          </div>
+          <h2 class="card-trip-pricing">£99.99</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>Title here</h2>
+            <p>Short description here!</p>
+          </div>
+          <h2 class="card-trip-pricing">£99.99</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>Title here</h2>
+            <p>Short description here!</p>
+          </div>
+          <h2 class="card-trip-pricing">£99.99</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    </div>
+  </div>
       <% @boats.each do |boat| %>
         <div class="card-trip">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
@@ -33,26 +80,44 @@
         </div>
       <% end %>
     </div>
-  </div>
-  <%= link_to 'New Boat', new_boat_path %>
 </div>
-<table>
-  <tbody>
-    <% @boats.each do |boat| %>
-      <tr>
-        <td><%= boat.name %></td>
-        <td><%= boat.photo %></td>
-        <td><%= boat.category %></td>
-        <td><%= boat.city %></td>
-        <td><%= boat.long %></td>
-        <td><%= boat.lat %></td>
-        <td><%= boat.price %></td>
-        <td><%= boat.available %></td>
-        <td><%= boat.user_id %></td>
-        <td><%= link_to 'Show', boat %></td>
-        <td><%= link_to 'Edit', edit_boat_path(boat) %></td>
-        <td><%= link_to 'Destroy', boat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="section-review">
+  <div class="container">
+    <h2>Reviews</h2>
+    <div class="reviews">
+      <div class="review">
+        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+        <div class="review-content">
+          <p class='date'><small>14th January</small></p>
+          <p class="stars">Stars</p>
+          <p class='description'>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
+        </div>
+      </div>
+
+      <div class="review">
+        <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+        <div class="review-content">
+          <p class='date'><small>9th January</small></p>
+          <p class="stars">Stars</p>
+          <p class='description'>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
+        </div>
+      </div>
+          <div class="review">
+        <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+        <div class="review-content">
+          <p class='date'><small>9th January</small></p>
+          <p class="stars">Stars</p>
+          <p class='description'>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
+        </div>
+      </div>
+          <div class="review">
+        <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+        <div class="review-content">
+          <p class='date'><small>9th January</small></p>
+          <p class="stars">Stars</p>
+          <p class='description'>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
