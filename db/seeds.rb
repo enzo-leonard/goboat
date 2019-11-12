@@ -77,6 +77,14 @@ fetch_index(index_url2)
 puts "La puissance du port du Havre"
 
 
-#SEED USER A CREER A LA SUITE
+#SEED USER :
 
+5.times do
+  User.create(
+    username: Faker::Games::Zelda.character,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    description: "hi my name is #{first_name} one day i met yoda and he says to me '#{Faker::Quote.yoda}' but Chuck explain him that #{Faker::ChuckNorris.fact}"
 
+end
