@@ -1,15 +1,28 @@
-    <div>
-      <% @boats.each do |boat| %>
-        <div class="card-trip">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-          <div class="card-trip-infos">
-            <div>
-              <h2>boat.name</h2>
-              <p><%= boat.category %> in <%= boat.city %></p>
-            </div>
-            <h2 class="card-trip-pricing"><%= boat.price %></h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-          </div>
-        </div>
-      <% end %>
+<div class="container">
+  <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+      <div class="search-form-control form-group search_index">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="City"/>
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Date begin"/>
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Date end"/>
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Category"/>
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Search
+        </button>
     </div>
+  </form>
+  <div class="grid">
+    <% @boats.each do |boat| %>
+      <div class="card-trip">
+        <img src="https://<%= boat.photo %>" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= boat.name %></h2>
+            <p><%= boat.category %> in <%= boat.city %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= boat.price %>€</h2>
+          <p class="card-trip-user"><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
