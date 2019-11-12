@@ -39,6 +39,7 @@ def fetch_boat(url)
 
   html_doc.search('#map').each do |elem|
     @args_boats[:lat] = elem.attribute('data-img-src').value.match(/([=]\d{1,}.\d{1,})/).to_s.gsub('=', '')
+    p @args_boats[:lat]
   end
    html_doc.search('#map').each do |elem|
    @args_boats[:long] = elem.attribute('data-img-src').value.match(/([C]\d{1,}\W\d{1,})/).to_s.gsub('C', '')
