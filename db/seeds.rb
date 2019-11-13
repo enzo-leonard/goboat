@@ -1,7 +1,11 @@
 # réiinitialisation de la db
 puts "On va écraserla DB les frères"
+Booking.destroy_all
 Boat.destroy_all
 User.destroy_all
+
+
+
  @toto = User.create!(
     email: 'admin@gmail.com',
     password: 'password',
@@ -56,7 +60,7 @@ def fetch_boat(url)
   html_doc.search('p').each do |element|
     ap "je usi sla"
     ap element.text
-    @args_boats[:description] = simple_format(boat.description)
+    @args_boats[:description] = element.text
     break
   end
    html_doc.search('.picSlide').each_with_index do |element, index|
@@ -94,7 +98,7 @@ def fetch_index(url)
   html_doc.search('span.textReg').each do |elem|
     @args_boats[:city] = elem.text.strip
   end
-  html_doc.search('.product-link').first(2).each_with_index do |element, i|
+  html_doc.search('.product-link').each_with_index do |element, i|
     fetch_boat(element.attribute('href').value)
   end
 end
