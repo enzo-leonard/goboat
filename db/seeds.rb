@@ -54,7 +54,9 @@ def fetch_boat(url)
     @args_boats[:capacity] = element.text.strip
   end
   html_doc.search('p').each do |element|
-   @args_boats[:description] = element.text.strip
+    ap "je usi sla"
+    ap element.text
+    @args_boats[:description] = simple_format(boat.description)
     break
   end
    html_doc.search('.picSlide').each_with_index do |element, index|
@@ -79,8 +81,6 @@ def fetch_boat(url)
    booty.user = random_user
    booty.save!
 
-puts "le bateau : #{booty.name} appartient : #{random_user.username}"
-
 end
 
 def fetch_index(url)
@@ -94,7 +94,7 @@ def fetch_index(url)
   html_doc.search('span.textReg').each do |elem|
     @args_boats[:city] = elem.text.strip
   end
-  html_doc.search('.product-link').each_with_index do |element, i|
+  html_doc.search('.product-link').first(2).each_with_index do |element, i|
     fetch_boat(element.attribute('href').value)
   end
 end
