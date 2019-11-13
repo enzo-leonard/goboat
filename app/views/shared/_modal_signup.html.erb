@@ -8,19 +8,38 @@
         </button>
       </div>
       <div class="modal-body">
-        <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-        <div class="search-form-control form-group">
-          <input class="form-control string required" type="text" name="" id="signup_email" placeholder="Email Address" />
-          <input class="form-control string required" type="text" name="" id="signup_first_name" placeholder="First name"/>
-          <input class="form-control string required" type="text" name="" id="signup_last_name" placeholder="Last name" />
-          <input class="form-control string required" type="text" name="" id="signup_password" placeholder="Create a password"/>
+        <%= simple_form_for(User.new, as: :user, url: session_path(:user)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :first_name,
+                    autofocus: true,
+                    input_html: { autocomplete: "First name" }%>
+          <%= f.input :last_name,
+                    autofocus: true,
+                    input_html: { autocomplete: "Last name" }%>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary">Sign up</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modal_login">Login</button>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up" %>
+          </div>
+        </div>
+        <% end %>
+
+        <div class="modal-footer">
+          <p>Already have an account ?</p>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#modal_login">Login</button>
         </div>
       </div>
-    </form>
     </div>
   </div>
 </div>

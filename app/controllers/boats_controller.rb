@@ -18,6 +18,7 @@ class BoatsController < ApplicationController
   # GET /boats/new
   def new
     @boat = Boat.new
+    @user = User.new
   end
 
   # GET /boats/1/edit
