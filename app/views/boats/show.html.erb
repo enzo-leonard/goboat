@@ -14,7 +14,7 @@
 
         <h2>Description:</h2>
         <div class="description">
-          <%= @boat.description %>
+          <%= simple_format(@boat.description) %>
         </div>
         <div id=long class="hidden"><%=@boat.lat%></div>
         <div id=lat class="hidden"><%=@boat.long%></div>
