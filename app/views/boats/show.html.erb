@@ -1,49 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="show">
+  <div class="show-container">
+    <div class="row">
+      <div class="col-8 border p-0">
 
-<p>
-  <strong>Name:</strong>
-  <%= @boat.name %>
-</p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= "https://#{@boat.photo}" %>
-</p>
+        <p id="notice"><%= notice %></p>
+        <img class=img-show src="https://<%= @boat.photo %>" />
 
-<p>
-  <strong>Category:</strong>
-  <%= @boat.category %>
-</p>
+        <h1><%= @boat.name %> </h1>
 
-<p>
-  <strong>City:</strong>
-  <%= @boat.city %>
-</p>
 
-<p>
-  <strong>Long:</strong>
-  <%= @boat.long %>
-</p>
+        <p>Category: <%= @boat.category %> </p>
 
-<p>
-  <strong>Lat:</strong>
-  <%= @boat.lat %>
-</p>
+        <h2>Description:</h2>
+        <div class="description">
+          <%= @boat.description %>
+        </div>
+        <div id=long class="hidden"><%=@boat.lat%></div>
+        <div id=lat class="hidden"><%=@boat.long%></div>
+        <div id="map"></div>
+        <br>
+        <p>
+          <img class="avatar-large" src="<%= @boat.user.photo %>" />
+          <%= @boat.user.username %>
+          <hr>
+          <%= @boat.user.description %>
+        </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @boat.price %>
-</p>
+        <%= link_to 'Edit', edit_boat_path(@boat) %> |
+        <%= link_to 'Back', boats_path %>
 
-<p>
-  <strong>Available:</strong>
-  <%= @boat.available %>
-</p>
+        </div>
+    <div class="col-4 border">
+    <div class="booking-container">
+      <%= simple_form_for [@boat, Booking.new] do |f| %>
+          <%= f.input :date_begin, placeholder: "date du debut "%>
+          <%= f.input :date_end, placeholder: "date de fin"%>
+          <%= f.submit "Reserver", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @boat.user_id %>
-</p>
 
-<%= link_to 'Edit', edit_boat_path(@boat) %> |
-<%= link_to 'Back', boats_path %>
