@@ -40,9 +40,12 @@
       </div>
     </div>
   </header>
-  <%= render 'modal_login' %>
-  <%= render 'modal_signup' %>
-  <%= yield %>
+    <%= render 'shared/flashes' %>
+    <%= render 'shared/modal_login' %>
+    <%= render 'shared/modal_signup' %>
+    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   <footer>
     <div class="footer">
       <div class="footer-links">
