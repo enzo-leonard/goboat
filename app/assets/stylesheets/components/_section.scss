@@ -1,12 +1,22 @@
 .section-category {
   height: 60vh;
-  margin-top: 30px;
-  padding: 20px;
+  padding-top: 30px;
+
+  h2{
+    text-align: center;
+    font-weight:900;
+    color:$blackblue;
+  }
 }
 
 .section-review {
   height: 60vh;
-  margin-top: 30px;
+  padding-top: 30px;
   background:white;
-  padding: 20px;
+
+  h2{
+    text-align: center;
+    font-weight:900;
+    color:$blackblue;
+  }
 }
