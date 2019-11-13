@@ -57,9 +57,10 @@ def fetch_boat(url)
   html_doc.search('#general > div.key-info > span.icon-user-single-a-group.col-3-12.mobile-col-6-12').each do |element|
     @args_boats[:capacity] = element.text.strip
   end
+  html_doc.search('#product-view').each do |elem|
+   @args_boats[:price] = elem.attribute('data-from-price').value
+   end
   html_doc.search('p').each do |element|
-    ap "je usi sla"
-    ap element.text
     @args_boats[:description] = element.text
     break
   end
@@ -92,9 +93,6 @@ def fetch_index(url)
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
 
-  html_doc.search('span.price').each do |elem|
-    @args_boats[:price] = elem.text.strip
-  end
   html_doc.search('span.textReg').each do |elem|
     @args_boats[:city] = elem.text.strip
   end
