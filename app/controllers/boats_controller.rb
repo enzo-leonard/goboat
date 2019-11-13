@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:home,:index, :show]
+  skip_before_action :authenticate_user!, only: [:home, :index, :show]
   # GET /boats
   # GET /boats.json
   def home
