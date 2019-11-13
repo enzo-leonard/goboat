@@ -4,10 +4,12 @@ class BoatsController < ApplicationController
   # GET /boats
   # GET /boats.json
   def index
-    @sql = 'Boats.available = true '
-    @sql += "AND Boats.city LIKE '%#{params[:city]}%'" if params[:city].present?
-    @sql += "AND Boats.price < '#{params[:price]}'" if params[:price].present?
+    @sql = "Boats.available = true "
+    @sql += "and Boats.city ILIKE '#{'%'+params[:city]+'%'}' " if params[:city].present?
+    @sql += "and Boats.price <= #{params[:price].to_i}" if params[:price].present?
     @boats = Boat.all.where(@sql)
+
+    #TO BE COMPLETED
   end
 
   # GET /boats/1
