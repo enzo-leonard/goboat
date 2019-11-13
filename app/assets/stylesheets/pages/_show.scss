@@ -1,0 +1,33 @@
+.show{
+
+  .show-container{
+      margin: 50px auto;
+      width: 90%;
+
+  }
+
+
+  .description{
+    max-height: 200px;
+    overflow: hidden;
+  }
+
+  .hidden{
+    visibility: hidden;
+  }
+
+  #map{
+    width: 100%;
+    height: 500px;
+  }
+
+  .booking-container{
+    width: 100%;
+    padding: 16px;
+    background-color: lightblue;
+    border-radius: 4px;
+  }
+
+
+
+}
