@@ -4,10 +4,10 @@
 
 .sticky-header {
   position: fixed;
-	width: 100%;
-	transition: top 0.3s;
-	background: white;
-	z-index: 2;
+  width: 100%;
+  transition: top 0.3s;
+  background: white;
+  z-index: 2;
   border-bottom: 1px solid #eee;
   top: 0;
   width: 100%;
@@ -21,6 +21,7 @@
   margin-top: 10px;
 }
 
+
 .grid {
   flex-grow: 1;
   display: grid;
@@ -29,29 +30,80 @@
   padding: 16px;
 }
 
-.card-trip {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.card-category {
+
+  background-size: cover;
+  background-position: center;
+  margin:0;
+  height: 250px;
+  // width: 350px;
+  list-style: none;
+  text-align: center;
+  display: flex;
+  justify-content:center;
+  align-items :center;
+  /*when im out*/
+  transition: background-color 3s ease;
+  position: relative;
+  z-index: 1;
+
+  &:hover{
+    /*when im in*/
+    transition: background-color 1s ease;
+  }
+
+
+
+  h3 {
+    color: $white;
+    font-weight: bold;
+    font-family: $headers-font;
+    font-size: 1.6rem;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: all 2s ease;
+    z-index: 3;
+  }
+
+  &:hover h3{
+    /*when im in*/
+    bottom: 100px;
+    opacity: 1;
+    transition: all 1s ease;
+  }
+
+  .fx{
+
+    position:absolute;
+    top: 0;
+    left:0;
+    height:100%;
+    width:100%;
+    opacity: 1;
+    transition: all 3s ease;
+    z-index: 2;
+  }
+  &:hover .fx{
+  // background: linear-gradient(rgba(107, 39, 55, 1), rgba(248, 244, 166, 1));
+  background-color: $blue;
+
+  opacity:.7;
+  transition: all 1s ease;
+  }
+
+  a{
+
+    position:absolute;
+    top: 0;
+    left:0;
+    height:100%;
+    width:100%;
+    z-index: 4;
+  }
+
 }
 
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
 
 .search_index {
   display:flex;
