@@ -1,8 +1,11 @@
 class BoatsController < ApplicationController
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: [:home, :index, :show]
   # GET /boats
   # GET /boats.json
+  def home
+  end
+
   def index
     @sql = 'Boats.available = true '
     @sql += "AND Boats.city LIKE '%#{params[:city]}%'" if params[:city].present?
@@ -18,6 +21,7 @@ class BoatsController < ApplicationController
   # GET /boats/new
   def new
     @boat = Boat.new
+    @user = User.new
   end
 
   # GET /boats/1/edit
