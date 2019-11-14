@@ -28,8 +28,20 @@
           <div id="price" class=hidden><%= @boat.price %></div>
         </p>
 
-        <%= link_to 'Edit', edit_boat_path(@boat) %> |
-        <%= link_to 'Back', boats_path %>
+        <%#= link_to 'Edit', edit_boat_path(@boat) %>
+
+        <h2> Reviews </h2>
+        <br>
+        <% @boat.reviews.each do |item| %>
+          <div class="review">
+            <img src='<%= item.user.photo%>' class="avatar-large"/>
+            <div class="review-content">
+            <p class='date'><small>9th January</small></p>
+            <p class="stars">---------</p>
+            <p class='description'><%= item.input%></p>
+            </div>
+          </div>
+        <%end%>
 
         </div>
     <div class="col-4 ">
@@ -53,6 +65,7 @@
       </div>
     </div>
     </div>
+</div>
       <!-- script to display calendar -->
         <script>
           $(function() {
@@ -66,5 +79,6 @@
         </script>
         <!-- end of script to display calendar -->
 </div> 
+
 
 
