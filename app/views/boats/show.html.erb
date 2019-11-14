@@ -34,8 +34,19 @@
     <div class="col-4 border">
     <div class="booking-container">
       <%= simple_form_for [@boat, Booking.new] do |f| %>
-          <%= f.input :date_begin, placeholder: "date du debut "%>
-          <%= f.input :date_end, placeholder: "date de fin"%>
+        <%= text_field_tag :daterange, params[:date_begin], class: "form-control string required field", placeholder: "start - end"%>
+        <!-- script to display calendar -->
+        <script>
+          $(function() {
+            $('input[name="daterange"]').daterangepicker({
+
+              opens: 'center'
+            }, function(start, end, label) {
+              console.log(start, end);
+            });
+          });
+        </script>
+        <!-- end of script to display calendar -->
           <%= f.submit "Reserver", class: "btn btn-primary" %>
         <% end %>
       </div>

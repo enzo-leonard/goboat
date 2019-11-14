@@ -15,7 +15,6 @@ class BoatsController < ApplicationController
     @boats = Boat.where(@sql)
     @count = @boats.count
     @count_tt = Boat.all.count
-
   end
 
   # GET /boats/1

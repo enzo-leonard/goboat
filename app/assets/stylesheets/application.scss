@@ -11,3 +11,15 @@
 // Your CSS partials
 @import "components/*";
 @import "pages/*";
+
+.btn-primary{
+background: $grayblue !important;
+color: $white !important;
+border:none !important;
+
+  &:hover{
+    background:$blue !important;
+    color:$white !important;
+    border:none !important;
+  }
+}
