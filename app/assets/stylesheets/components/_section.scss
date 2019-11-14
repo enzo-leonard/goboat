@@ -20,3 +20,17 @@
     color:$blackblue;
   }
 }
+
+.flex {
+  display: flex;
+  flex:2;
+}
+
+.sidebar {
+  background: #aa0000;
+  width: 30%;
+}
+
+.dashboard {
+  width: 60%;
+}
