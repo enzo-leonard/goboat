@@ -7,16 +7,19 @@
         class: "form-control string required field",
         placeholder: "City"
       %>
-      <%= text_field_tag :date_begin,
-        params[:date_begin],
-        class: "form-control string required field",
-        placeholder: "Date begin"
-      %>
-      <%= text_field_tag :date_end,
-        params[:date_end],
-        class: "form-control string required field",
-        placeholder: "Date end"
-      %>
+        <%= text_field_tag :daterange, params[:date_begin], class: "form-control string required field", placeholder: "start - end"%>
+        <!-- script to display calendar -->
+        <script>
+          $(function() {
+            $('input[name="daterange"]').daterangepicker({
+
+              opens: 'center'
+            }, function(start, end, label) {
+              console.log(start, end);
+            });
+          });
+        </script>
+        <!-- end of script to display calendar -->
       <%= text_field_tag :category,
         params[:category],
         class: "form-control string required field",
