@@ -6,7 +6,7 @@
       <p>My Bookings</p>
       <p>My Sailors</p>
       <p>My Boats</p>
-      <p>Log out</p>
+      <div><%= link_to  icon('fas', 'sign-out-alt', 'log out') , destroy_user_session_path , method: :delete, data: { confirm: "Yo" }, class: 'dropdown-item' %></div>
       <% current_user %>
     </div>
     <div class="dashboard">
