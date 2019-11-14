@@ -26,13 +26,6 @@
                         required: true,
                         autofocus: true,
                         input_html: { autocomplete: "email" }%>
-            <%= f.input :password,
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
           </div>
           <div class="form-actions">
             <%= f.button :submit, "Update" %>
@@ -49,7 +42,7 @@
               <img src="https://<%= booking.boat.photo %>" />
               <div class="flex-bookings">
               <div class="photo-owner">
-                <img class="avatar-img" src="<%= booking.user.photo %>" alt="">
+                <img class="avatar-img" src="<%= booking.boat.user.photo %>" alt="">
               </div>
                 <div class="name-city">
                   <h2><%= booking.date_begin %></h2>
@@ -72,7 +65,9 @@
       <hr>
       </div> %>
       <div class="section-boats">
-        <h2>My boats</h2><p>+ add a boat</p>
+      <div class='flex_h2'>
+        <h2>My boats</h2><button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#modal_addaboat">+ add a boat</button>
+      </div>
       <div class="flex_boats">
         <% current_user.boats.each do |boat| %>
           <a href='<%= boat_path(boat) %>'>
@@ -87,6 +82,10 @@
                   <h2 class=""><%= boat.price %>€</h2>
                   <p class=""><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
                 </div>
+                <div>
+                  <%= link_to "", boat_path(boat), method: :delete, data: { confirm: "Are you sure you want to delete" }, class: "fa fa-trash" %>
+                  <%= link_to "", edit_boat_path(boat), class: "fa fa-pen" %>
+                </div>
               </div>
             </div>
           </a>
@@ -94,35 +93,9 @@
       </div>
       <br>
       <div>
-        <h2>Add a new boat</h2>
-          <%= simple_form_for(Boat.new, as: :boat) do |f| %>
-            <%= f.error_notification %>
-            <div class="form-inputs">
-              <%= f.input :name,
-                        autofocus: true,
-                        input_html: { autocomplete: "name" }%>
-              <%= f.input :city,
-                        autofocus: true,
-                        input_html: { autocomplete: "city" }%>
-              <%= f.input :capacity,
-                          required: true,
-                          autofocus: true,
-                          input_html: { autocomplete: "capacity" }%>
-              <%= f.input :price,
-                          required: true,
-                          input_html: { autocomplete: "price" } %>
-              <%= f.input :photo,
-                          required: true,
-                          input_html: { autocomplete: "photo" } %>
-              <%= f.input :description,
-                          required: true,
-                          input_html: { autocomplete: "description" } %>
-            </div>
-            <div class="form-actions">
-              <%= f.button :submit, "Update" %>
-            </div>
-          <% end %>
-        </div>
+      <%= render 'modal_addaboat' %>
       </div>
+    </div>
   </div>
+</div>
 </div>

@@ -15,7 +15,6 @@ class BoatsController < ApplicationController
     @boats = Boat.where(@sql)
     @count = @boats.count
     @count_tt = Boat.all.count
-
   end
 
   # GET /boats/1
@@ -40,11 +39,9 @@ class BoatsController < ApplicationController
 
     respond_to do |format|
       if @boat.save
-        format.html { redirect_to @boat, notice: 'Boat was successfully created.' }
-        format.json { render :show, status: :created, location: @boat }
+        format.html { redirect_to '/users/edit', notice: 'Boat was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @boat.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,11 +51,9 @@ class BoatsController < ApplicationController
   def update
     respond_to do |format|
       if @boat.update(boat_params)
-        format.html { redirect_to @boat, notice: 'Boat was successfully updated.' }
-        format.json { render :show, status: :ok, location: @boat }
+        format.html { redirect_to '/users/edit', notice: 'Boat was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @boat.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -68,7 +63,7 @@ class BoatsController < ApplicationController
   def destroy
     @boat.destroy
     respond_to do |format|
-      format.html { redirect_to boats_url, notice: 'Boat was successfully destroyed.' }
+      format.html { redirect_to '/users/edit', notice: 'Boat was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -81,10 +76,7 @@ class BoatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def boat_params
-      params.require(:boat).permit(:name, :photo, :category, :city, :long, :lat, :price, :available, :user_id)
+      param_user = {user_id: current_user.id}
+      params.require(:boat).permit(:name, :photo, :category, :city, :long, :lat, :price, :available, :capacity).merge(param_user)
     end
-
-
-
-
 end

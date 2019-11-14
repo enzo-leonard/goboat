@@ -30,6 +30,12 @@
   padding: 16px;
 }
 
+.flex_h2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
 .flex_boats {
   display: flex;
   flex-direction: column;
@@ -189,8 +195,8 @@
 }
 
 .avatar-img {
-  width: 80px!important;
-  height: 80px!important;
+  width: 60px!important;
+  height: 60px!important;
   border-radius: 50%;
   object-fit: cover;
   object-position: top;
