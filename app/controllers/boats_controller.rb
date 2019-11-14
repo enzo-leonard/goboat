@@ -7,12 +7,15 @@ class BoatsController < ApplicationController
   end
 
   def index
-    @sql = "Boats.available = true "
+    @sql =  "boats.date_end - current_date > 0 OR boats.date_end is null"
     @sql += "and Boats.city ILIKE '#{'%'+params[:city]+'%'}' " if params[:city].present?
     @sql += "and Boats.price <= #{params[:price].to_i}" if params[:price].present?
-    @boats = Boat.all.where(@sql)
+    @sql += "and Boats.date_end - date '#{params[:date_begin]}' > 0 OR boats.date_end is null " if params[:date_begin].present?
+    @sql += "and Boats.category ILIKE '#{'%'+params[:category]+'%'}' " if params[:category].present?
+    @boats = Boat.where(@sql)
+    @count = @boats.count
+    @count_tt = Boat.all.count
 
-    #TO BE COMPLETED
   end
 
   # GET /boats/1
@@ -80,4 +83,8 @@ class BoatsController < ApplicationController
     def boat_params
       params.require(:boat).permit(:name, :photo, :category, :city, :long, :lat, :price, :available, :user_id)
     end
+
+
+
+
 end

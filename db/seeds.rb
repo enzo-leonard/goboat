@@ -6,15 +6,7 @@ User.destroy_all
 
 
 
- @toto = User.create!(
-    email: 'admin@gmail.com',
-    password: 'password',
-    username: 'admin',
-    last_name: 'admin',
-    first_name: 'admin',
-    photo: 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjF08e39-TlAhUCyoUKHcMLCYMQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.business2community.com%2Fsocial-media%2Fimportance-profile-picture-career-01899604&psig=AOvVaw0KDssQW0s4CdXmmxKLFWzp&ust=1573657036943224',
-    description: "describe your self lazy admin..."
-  )
+
 
 # SEED USER :
 puts "Creation de personnage super cool !"
@@ -38,6 +30,17 @@ i = 0
     photo: portrait[i])
     i += 1
 end
+
+admin = User.new(
+    email: 'admin@gmail.com',
+    password: 'password',
+    username: 'admin',
+    last_name: 'admin',
+    first_name: 'admin',
+    photo: 'https://images.unsplash.com/photo-1546538994-4f15d0aa966f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60',
+    description: "describe your self lazy admin..."
+)
+admin.save!
 puts "Chuck Norris Win !"
 
 
@@ -57,9 +60,10 @@ def fetch_boat(url)
   html_doc.search('#general > div.key-info > span.icon-user-single-a-group.col-3-12.mobile-col-6-12').each do |element|
     @args_boats[:capacity] = element.text.strip
   end
+  html_doc.search('#product-view').each do |elem|
+   @args_boats[:price] = elem.attribute('data-from-price').value
+   end
   html_doc.search('p').each do |element|
-    ap "je usi sla"
-    ap element.text
     @args_boats[:description] = element.text
     break
   end
@@ -92,9 +96,6 @@ def fetch_index(url)
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
 
-  html_doc.search('span.price').each do |elem|
-    @args_boats[:price] = elem.text.strip
-  end
   html_doc.search('span.textReg').each do |elem|
     @args_boats[:city] = elem.text.strip
   end
@@ -103,10 +104,43 @@ def fetch_index(url)
   end
 end
 
-
-
 fetch_index(index_url1)
-fetch_index(index_url2)
+#fetch_index(index_url2)
+
+
+puts "Creation de l'admin et ses reservations "
+
+
+
+admin_booking1 = Booking.new(
+  date_begin: "12/09/2019",
+  date_end: "12/10/2019",
+)
+
+admin_booking2 = Booking.new(
+  date_begin: "13/09/2019",
+  date_end: "13/10/2019",
+)
+
+admin_boat1 = Boat.last
+admin_boat1.update!(available: false, date_end: admin_booking1.date_end)
+admin_boat2 = Boat.first
+admin_boat2.update!(available: false, date_end: admin_booking2.date_end)
+
+admin_booking1.boat = admin_boat1
+admin_booking1.user = admin
+admin_booking1.save!
+admin_booking2.boat = admin_boat2
+admin_booking2.user = admin
+admin_booking2.save!
+
+
+
+
+
+
+
+
 
 
 puts "La puissance du port du Havre"
