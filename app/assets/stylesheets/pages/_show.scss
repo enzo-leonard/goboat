@@ -8,8 +8,6 @@
 
 
   .description{
-    max-height: 200px;
-    overflow: hidden;
   }
 
   .hidden{
@@ -22,10 +20,24 @@
   }
 
   .booking-container{
-    width: 100%;
+    width: 500px;
     padding: 16px;
-    background-color: lightblue;
+    background-color: white;
     border-radius: 4px;
+    border: 2px solid lightblue;
+    position: fixed;
+    margin: 0px 70px;
+    overflow: hidden;
+    transition: all 0.3s;
+    transition: height 0.5s;
+  }
+
+  b {
+    font-size: 2em;
+  }
+
+  .align-right {
+    text-align: right;
   }
 
 
