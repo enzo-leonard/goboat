@@ -20,11 +20,7 @@
           });
         </script>
         <!-- end of script to display calendar -->
-      <%= text_field_tag :category,
-        params[:category],
-        class: "form-control string required field",
-        placeholder: "Category"
-      %>
+      <%= select_tag :category, raw("<option>petit calibre</option><option>moyen calibre</option><option>gros calibre</option>"), class: "form-control string required field"%>
       <%= button_tag icon('fas', 'search', ' Search'), class: "btn btn-flat", id: "submit-search" %><%= %>
       </div>
     <% end %>
