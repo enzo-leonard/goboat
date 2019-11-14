@@ -18,6 +18,9 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
 gem 'awesome_print'
+gem 'jquery-rails'
+gem 'momentjs-rails'
+gem 'bootstrap-daterangepicker-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
