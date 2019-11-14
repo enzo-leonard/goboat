@@ -12,7 +12,7 @@ User.destroy_all
     username: 'admin',
     last_name: 'admin',
     first_name: 'admin',
-    photo: 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjF08e39-TlAhUCyoUKHcMLCYMQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.business2community.com%2Fsocial-media%2Fimportance-profile-picture-career-01899604&psig=AOvVaw0KDssQW0s4CdXmmxKLFWzp&ust=1573657036943224',
+    photo: 'https://images.unsplash.com/photo-1546538994-4f15d0aa966f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60',
     description: "describe your self lazy admin..."
   )
 
