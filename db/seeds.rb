@@ -49,6 +49,14 @@ puts "Chuck Norris Win !"
 
 index_url1 = "https://www.clickandboat.com/location-bateau/france/marseille"
 index_url2 = "https://www.clickandboat.com/location-bateau/france/brest"
+index_url3 = "https://www.clickandboat.com/location-bateau/france/lyon"
+index_url4 = "https://www.clickandboat.com/location-bateau/france/paris"
+index_url5 = "https://www.clickandboat.com/location-bateau/france/toulon"
+index_url6 = "https://www.clickandboat.com/location-bateau/france/strasbourg"
+index_url7 = "https://www.clickandboat.com/location-bateau/france/bastia"
+index_url8 = "https://www.clickandboat.com/location-bateau/france/biarritz"
+index_url9 = "https://www.clickandboat.com/location-bateau/france/bordeaux"
+index_url10 = "https://www.clickandboat.com/location-bateau/france/ajaccio"
 
 
 def fetch_boat(url)
@@ -82,6 +90,12 @@ def fetch_boat(url)
    end
 
 
+   if @args_boats[:capacity].to_i <= 6
+    @args_boats[:category] = "Petit Calibre"
+  elsif @args_boats[:capacity].to_i <= 9
+    @args_boats[:category] = "Moyen Calibre"
+  else @args_boats[:category] = "Gros Calibre"
+  end
 
 
    booty = Boat.new(@args_boats)
@@ -95,17 +109,31 @@ def fetch_index(url)
   @args_boats = {}
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
-
   html_doc.search('span.textReg').each do |elem|
-    @args_boats[:city] = elem.text.strip
-  end
+     @args_boats[:city] = elem.text.strip
+      end
+
   html_doc.search('.product-link').each_with_index do |element, i|
-    fetch_boat(element.attribute('href').value)
+    if element.attribute('href').present?
+      fetch_boat(element.attribute('href').value)
+    else
+      link = element.attribute('data-chaos').value
+      fetch_boat(Base64.decode64(link.gsub("∞", "")))
   end
+end
 end
 
 fetch_index(index_url1)
-#fetch_index(index_url2)
+fetch_index(index_url2)
+fetch_index(index_url3)
+fetch_index(index_url4)
+fetch_index(index_url5)
+fetch_index(index_url6)
+fetch_index(index_url7)
+fetch_index(index_url8)
+fetch_index(index_url9)
+fetch_index(index_url10)
+
 
 
 puts "Creation de l'admin et ses reservations "
@@ -136,13 +164,11 @@ admin_booking2.save!
 
 
 
-
-
-
-
-
-
-
 puts "La puissance du port du Havre"
+
+
+
+
+
 
 

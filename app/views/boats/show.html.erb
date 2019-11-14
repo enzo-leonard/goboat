@@ -1,7 +1,7 @@
 <div class="show">
   <div class="show-container">
     <div class="row">
-      <div class="col-8 border p-0">
+      <div class="col-8 p-0">
 
 
         <p id="notice"><%= notice %></p>
@@ -25,17 +25,35 @@
           <%= @boat.user.username %>
           <hr>
           <%= @boat.user.description %>
+          <div id="price" class=hidden><%= @boat.price %></div>
         </p>
 
         <%= link_to 'Edit', edit_boat_path(@boat) %> |
         <%= link_to 'Back', boats_path %>
 
         </div>
-    <div class="col-4 border">
+    <div class="col-4 ">
     <div class="booking-container">
+      <h2 id=title-booking>Rent this boat</h2>
       <%= simple_form_for [@boat, Booking.new] do |f| %>
-        <%= text_field_tag :daterange, params[:date_begin], class: "form-control string required field", placeholder: "start - end"%>
-        <!-- script to display calendar -->
+      <%= text_field_tag :daterange, params[:date_begin], class: "form-control string required field", placeholder: "start - end"%>
+          <%= f.input :date_begin, placeholder: "date du debut "%>
+          <%= f.input :date_end, placeholder: "date de fin"%>
+          <input id=sended-price name=booking[price] type=hidden value=<%= @boat.price %>>
+          <hr>
+          <div class="details">
+            <h3>Details</h3>
+            <p>Number of day : <em id=nb-day><em></p>
+            <p class=align-right><b id=prix><%= @boat.price %></b>€</p>
+          </div>
+          <a id="btn-prix">voir prix</a>
+
+          <%= f.submit "Reserver", class: "btn btn-primary center", id: "commit" %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+      <!-- script to display calendar -->
         <script>
           $(function() {
             $('input[name="daterange"]').daterangepicker({
@@ -47,11 +65,6 @@
           });
         </script>
         <!-- end of script to display calendar -->
-          <%= f.submit "Reserver", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-    </div>
-</div>
+</div> 
 
 
