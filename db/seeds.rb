@@ -30,6 +30,17 @@ i = 0
     photo: portrait[i])
     i += 1
 end
+
+admin = User.new(
+    email: 'admin@gmail.com',
+    password: 'password',
+    username: 'admin',
+    last_name: 'admin',
+    first_name: 'admin',
+    photo: 'https://images.unsplash.com/photo-1546538994-4f15d0aa966f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60',
+    description: "describe your self lazy admin..."
+)
+admin.save!
 puts "Chuck Norris Win !"
 
 
@@ -96,21 +107,12 @@ def fetch_index(url)
 end
 
 fetch_index(index_url1)
-fetch_index(index_url2)
+#fetch_index(index_url2)
 
 
 puts "Creation de l'admin et ses reservations "
 
-admin = User.new(
-    email: 'admin@gmail.com',
-    password: 'password',
-    username: 'admin',
-    last_name: 'admin',
-    first_name: 'admin',
-    photo: 'https://images.unsplash.com/photo-1546538994-4f15d0aa966f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60',
-    description: "describe your self lazy admin..."
-)
-admin.save!
+
 
 admin_booking1 = Booking.new(
   date_begin: "12/09/2019",
@@ -123,7 +125,9 @@ admin_booking2 = Booking.new(
 )
 
 admin_boat1 = Boat.last
+admin_boat1.update!(available: false, date_end: admin_booking1.date_end)
 admin_boat2 = Boat.first
+admin_boat2.update!(available: false, date_end: admin_booking2.date_end)
 
 admin_booking1.boat = admin_boat1
 admin_booking1.user = admin
