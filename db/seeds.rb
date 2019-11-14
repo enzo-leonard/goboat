@@ -6,15 +6,7 @@ User.destroy_all
 
 
 
- @toto = User.create!(
-    email: 'admin@gmail.com',
-    password: 'password',
-    username: 'admin',
-    last_name: 'admin',
-    first_name: 'admin',
-    photo: 'https://images.unsplash.com/photo-1546538994-4f15d0aa966f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60',
-    description: "describe your self lazy admin..."
-  )
+
 
 # SEED USER :
 puts "Creation de personnage super cool !"
@@ -103,10 +95,50 @@ def fetch_index(url)
   end
 end
 
-
-
 fetch_index(index_url1)
 fetch_index(index_url2)
+
+
+puts "Creation de l'admin et ses reservations "
+
+admin = User.new(
+    email: 'admin@gmail.com',
+    password: 'password',
+    username: 'admin',
+    last_name: 'admin',
+    first_name: 'admin',
+    photo: 'https://images.unsplash.com/photo-1546538994-4f15d0aa966f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60',
+    description: "describe your self lazy admin..."
+)
+admin.save!
+
+admin_booking1 = Booking.new(
+  date_begin: "12/09/2019",
+  date_end: "12/10/2019",
+)
+
+admin_booking2 = Booking.new(
+  date_begin: "13/09/2019",
+  date_end: "13/10/2019",
+)
+
+admin_boat1 = Boat.last
+admin_boat2 = Boat.first
+
+admin_booking1.boat = admin_boat1
+admin_booking1.user = admin
+admin_booking1.save!
+admin_booking2.boat = admin_boat2
+admin_booking2.user = admin
+admin_booking2.save!
+
+
+
+
+
+
+
+
 
 
 puts "La puissance du port du Havre"
