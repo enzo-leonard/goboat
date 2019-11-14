@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-<div class="flex">
-  <div class="sidebar">
-    <%= @user.photo %>
-    <%= @user.first_name %>
-    <%= @user.last_name %>
-    <p>My profile</p>
-    <p>My Bookings</p>
-    <p>My Sailors</p>
-    <p>My Boats</p>
-    <p>Log out</p>
-=======
-<div class="container">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -34,71 +21,8 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
->>>>>>> 30c1ac8f864195b2832374686be4ac4f600c7a49
   </div>
-  <div class="dashboard">
-    <div class="section-profil">
-    <h2>My profil</h2>
-    <hr>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
 
-<<<<<<< HEAD
-        <div class="form-inputs">
-          <%= f.input :first_name,
-                    autofocus: true,
-                    input_html: { autocomplete: "First name" }%>
-          <%= f.input :last_name,
-                    autofocus: true,
-                    input_html: { autocomplete: "Last name" }%>
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Update" %>
-        </div>
-      <% end %>
-    <hr>
-    </div>
-    <div class="section-bookings">
-      <h2>My bookings</h2>
-    <div class="grid">
-      <% @boats.each do |boat| %>
-        <a href='<%= boat_path(boat) %>'>
-          <div class="">
-            <img src="https://<%= boat.photo %>" />
-            <div class="">
-              <div>
-                <h2><%= boat.name %></h2>
-                <p><%= boat.category %> in <%= boat.city %></p>
-              </div>
-              <h2 class=""><%= boat.price %>€</h2>
-              <p class=""><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
-            </div>
-          </div>
-        </a>
-      <% end %>
-    </div>
-    <hr>
-    </div>
-    <div class="section-sailors">
-      <h2>My sailors</h2>
-    <hr>
-    </div>
-    <div class="section-boats">
-      <h2>My boats</h2>
-    <hr>
-    </div>
-=======
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
   </div>
@@ -109,6 +33,3 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
-
->>>>>>> 30c1ac8f864195b2832374686be4ac4f600c7a49
-</div>
