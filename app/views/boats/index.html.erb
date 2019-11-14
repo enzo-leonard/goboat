@@ -27,7 +27,7 @@
     <% end %>
   </div>
   sql : <%= @sql %><hr>
-  <%= @count %> boats find (on <%= @count_tt%>)
+  <div class="result"><b><%= @count %></b> boats find (on <%= @count_tt%>)</div>
   <div class="grid">
     <% @boats.each do |boat| %>
       <a href='<%= boat_path(boat) %>'>
