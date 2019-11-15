@@ -1,12 +1,12 @@
 <div class="container">
   <div id="sticky-header">
     <%= form_tag boats_path, method: :get, class: "simple_form search", id:"search-index" do %>
-      <div class="search-form-control form-group search_index">
+    <div class="search-form-control form-group search_index">
       <%= text_field_tag :city,
-        params[:city],
-        class: "form-control string required field",
+      params[:city],
+      class: "form-control string required field",
         placeholder: "City"
-      %>
+        %>
         <%= text_field_tag :daterange, params[:date_begin], class: "form-control string required field", placeholder: "start - end"%>
         <!-- script to display calendar -->
         <script>
@@ -20,33 +20,31 @@
           });
         </script>
         <!-- end of script to display calendar -->
-      <%= text_field_tag :category,
-        params[:category],
-        class: "form-control string required field",
-        placeholder: "Category"
-      %>
-      <%= button_tag icon('fas', 'search', ' Search'), class: "btn btn-flat", id: "submit-search" %><%= %>
+        <%= select_tag :category, raw("<option>petit calibre</option><option>moyen calibre</option><option>gros calibre</option>"), class: "form-control string required field"%>
+        <%= button_tag icon('fas', 'search', ' Search'), class: "btn btn-flat", id: "submit-search" %><%= %>
       </div>
-    <% end %>
-  </div>
-  sql : <%= @sql %><hr>
-  <div class="result"><b><%= @count %></b> boats find (on <%= @count_tt%>)</div>
-  <div class="grid">
-    <% @boats.each do |boat| %>
+      <% end %>
+    </div>
+    sql : <%= @sql %><hr>
+    <div class="result"><b><%= @count %></b> bateau trouvés </div>
+    <!-- (on <%= @count_tt%>) -->
+    <div class="grid">
+      <% @boats.each do |boat| %>
       <a href='<%= boat_path(boat) %>'>
         <div class="card-trip">
+          <div class="fx"></div>
           <img src="https://<%= boat.photo %>" />
           <div class="card-trip-infos">
             <div>
               <h2><%= boat.name %></h2>
-              <p><%= boat.category %> in <%= boat.city %></p>
+              <p class="city"><%= boat.city %></p>
             </div>
-            <h2 class="card-trip-pricing"><%= boat.price %>€</h2>
+            <h3 class="card-trip-pricing"><%= boat.price %>€</h3>
             <p class="card-trip-user"><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
           </div>
         </div>
       </a>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-</div>
+  </div>

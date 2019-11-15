@@ -1,5 +1,6 @@
 <div class="home">
-<div class="banner"  style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url(<%= asset_path 'hero1.jpg'%>)">
+
+<div class="banner"  style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), url(<%= asset_path 'hero1.jpg'%>)">
   <div class="container">
 <div class="container">
   <div class="search-box">
@@ -26,11 +27,7 @@
         <!-- end of script to display calendar -->
         </div>
             <label for="category">what</label>
-            <%= text_field_tag :category,
-            params[:category],
-            class: "form-control string required field",
-              placeholder: "Category"
-              %>
+              <%= select_tag :category, raw("<option>petit calibre</option><option>moyen calibre</option><option>gros calibre</option>"), class: "form-control string required field"%>
               <%= button_tag icon('fas', 'search', ' Search'), class: "btn btn-flat", id: "submit-search" %><%= %>
             </div>
             <% end %>
@@ -95,7 +92,7 @@
                 <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
                 <div class="review-content">
                   <p class='date'><small>9th January</small></p>
-                  <p class="stars">Stars</p>
+
                   <p class='description'>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
                 </div>
               </div>
