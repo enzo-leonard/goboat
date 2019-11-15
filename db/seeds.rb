@@ -141,15 +141,15 @@ end
 end
 
 fetch_index(index_url1)
-# fetch_index(index_url2)
-# fetch_index(index_url3)
-# fetch_index(index_url4)
-# fetch_index(index_url5)
-# fetch_index(index_url6)
-# fetch_index(index_url7)
-# fetch_index(index_url8)
-# fetch_index(index_url9)
-# fetch_index(index_url10)
+fetch_index(index_url2)
+fetch_index(index_url3)
+fetch_index(index_url4)
+fetch_index(index_url5)
+fetch_index(index_url6)
+fetch_index(index_url7)
+fetch_index(index_url8)
+fetch_index(index_url9)
+fetch_index(index_url10)
 
 
 
