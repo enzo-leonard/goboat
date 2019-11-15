@@ -30,6 +30,15 @@
     overflow: hidden;
     transition: all 0.3s;
     transition: height 0.5s;
+
+    #div-prix {
+      font-size: 2em !important;
+      color :white !important;
+      text-align: right !important;
+    }
+    #prix {
+      font-size: 2em !important;
+    }
   }
 
   b {

@@ -58,8 +58,8 @@ const initBooking = () => {
      const container = document.querySelector('.booking-container')
      const title = document.querySelector('#title-booking')
      console.log(title)
-     title.innerHTML = "Boat hooked !"
-     title.style.color = 'green'
+     title.innerHTML = "Boat booked !"
+     title.style.color = 'white'
      container.style.border = "2px solid green"
      container.style.height = "70px";
 

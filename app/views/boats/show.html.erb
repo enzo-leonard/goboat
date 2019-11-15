@@ -52,8 +52,8 @@
       <hr>
       <div class="details">
         <h3>Détails</h3>
-        <p>Jours : <em id=nb-day><em></p>
-          <p><b id=prix><%= @boat.price %></b>€</p>
+        <p>Nombre de jour : <em id=nb-day>1<em></p>
+          <p id=div-prix><em id=prix><%= @boat.price %></em>€</p>
         </div>
         <%= f.submit "Reserver", class: "btn btn-primary right", id: "commit" %>
         <% end %>
