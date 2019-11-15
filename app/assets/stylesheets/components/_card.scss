@@ -1,0 +1,161 @@
+#sticky-header {
+
+}
+
+.sticky-header {
+  position: fixed;
+  width: 100%;
+  transition: top 0.3s;
+  background: white;
+  z-index: 2;
+  border-bottom: 1px solid #eee;
+  top: 0;
+  width: 100%;
+  left: 0;
+}
+
+#search-index {
+  margin: 0 auto;
+  margin-top: 0px;
+  max-width: 1600px;
+  margin-top: 10px;
+}
+
+.grid {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+.flex_h2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.flex_boats {
+  display: flex;
+  flex-direction: column;
+}
+
+.search_index {
+  display:flex;
+  position: relative;
+}
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: 15px;
+  width: 40px;
+}
+
+.card-trip-capacity .card-trip-capacity {
+  position: absolute;
+  right: 16px;
+  top: 15px;
+  width: 40px;
+}
+
+.margin {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.field {
+  width: 21%;
+  margin-right: 10px;
+}
+
+
+ .card-trip {
+   overflow: hidden;
+   background: white;
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+ }
+
+ .card-trip>img {
+   height: 200px;
+   width: 100%;
+   object-fit: cover;
+ }
+
+ .card-trip h2 {
+   font-size: 16px;
+   font-weight: bold;
+   margin: 0;
+ }
+
+ .card-trip p {
+   font-size: 12px;
+   opacity: .7;
+   margin: 0;
+ }
+
+ .card-product {
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-product img {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+}
+
+.avatar-img {
+  width: 40px!important;
+  height: 40px!important;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+
+.name-city {
+  margin-left: 30px;
+  width: 60%;
+}
+
+.flex-box {
+  display: flex;
+  height: 120px;
+  padding-top: 20px;
+}
+
+.name-city-boats {
+  margin-left: 30px;
+  width: 80%;
+}
