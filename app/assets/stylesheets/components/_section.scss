@@ -66,8 +66,7 @@
 }
 
 .section-profil {
-  height: 60vh;
-  padding: 0 100px 30px 100px;
+  padding: 0 100px 150px 100px;
   background:white;
 
   h2{
@@ -77,8 +76,7 @@
 }
 
 .section-bookings {
-  height: 70vh;
-  padding: 0 100px 30px 100px;
+  padding: 0 100px 150px 100px;
   background:white;
 
   h2{
@@ -99,6 +97,8 @@
   .flex-box-column {
     display: flex;
     flex-direction: column;
+    height: 120px;
+    position: relative;
   }
   .flex-boats {
     display: flex;
@@ -109,5 +109,12 @@
   }
   .flex-boat {
     display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  .edit-delete {
+    padding-top: 0;
+    position: absolute;
+    top: 10px;
   }
 }
