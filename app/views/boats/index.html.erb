@@ -31,16 +31,16 @@
     <div class="grid">
       <% @boats.each do |boat| %>
       <a href='<%= boat_path(boat) %>'>
-        <div class="card-trip">
+        <div class="card-boaty">
           <div class="fx"></div>
           <img src="https://<%= boat.photo %>" />
-          <div class="card-trip-infos">
+          <div class="card-boaty-infos">
             <div>
               <h2><%= boat.name %></h2>
               <p class="city"><%= boat.city %></p>
             </div>
-            <h3 class="card-trip-pricing"><%= boat.price %>€</h3>
-            <p class="card-trip-user"><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
+            <h3 class="card-boaty-pricing"><%= boat.price %>€</h3>
+            <p class="card-boaty-user"><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
           </div>
         </div>
       </a>
