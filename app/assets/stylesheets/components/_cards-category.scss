@@ -1,0 +1,75 @@
+.grid {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 16px;
+}
+
+.card-category {
+
+  background-size: cover;
+  background-position: center;
+  margin:0;
+  height: 250px;
+  list-style: none;
+  text-align: center;
+  display: flex;
+  justify-content:center;
+  align-items :center;
+  /*when im out*/
+  transition: background-color 3s ease;
+  position: relative;
+  z-index: 1;
+
+  &:hover{
+    /*when im in*/
+    transition: background-color 1s ease;
+  }
+
+
+
+  h3 {
+    color: $white;
+    font-weight: bold;
+    font-family: $headers-font;
+    font-size: 1.6rem;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: all 2s ease;
+    z-index: 3;
+  }
+
+  &:hover h3{
+    bottom: 100px;
+    opacity: 1;
+    transition: all 1s ease;
+  }
+
+  .fx{
+    position:absolute;
+    top: 0;
+    left:0;
+    height:100%;
+    width:100%;
+    opacity: 1;
+    transition: all 3s ease;
+    z-index: 2;
+  }
+  &:hover .fx{
+    background-color: $blue;
+    opacity:.7;
+    transition: all 1s ease;
+  }
+  a{
+    position:absolute;
+    top: 0;
+    left:0;
+    height:100%;
+    width:100%;
+    z-index: 4;
+  }
+}
+
+
