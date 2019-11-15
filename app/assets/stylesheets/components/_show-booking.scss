@@ -1,0 +1,92 @@
+
+.show-booking{
+  width:30%;
+  background:$lightblue;
+  max-height: 400px;
+  display:flex;
+  flex-direction: column;
+  margin:16px 18px;
+  padding:20px;
+  padding-top: 50px;
+  position:fixed;
+  left:60%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+
+
+  label{
+    font-size: 1.4rem;
+    color:$white;
+    margin: 7px 0;
+  }
+
+  h2{
+    color:$white;
+    font-weight:900;
+    background: $grayblue;
+    transform: rotate(-1deg);
+    position: absolute;
+    top: -30px;
+    padding: 8px 20px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1)!important;
+    box-shadow: 5px 5px 21px rgba(0, 0, 0, 0.3)!important;
+  }
+
+  .form-control {
+    height: 3.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border-radius: 10px;
+  }
+
+  .field{
+    width:100% !important;
+    margin:0 !important;
+  }
+}
+
+// .search-form-control {
+//   position: relative;
+// }
+
+// .search-form-control .btn {
+//   position: absolute;
+//   right: 8px;
+//   margin-top: 10px;
+// }
+
+// .index_dates{
+//   display:flex;
+//   .begin{
+//     border-radius:10px 0 0 10px !important;
+//   }
+//    .end{
+//     border-radius:0 10px 10px 0 !important;
+//   }
+// }
+
+// .search-form-control .form-control {
+//   height: 3.5rem;
+//   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+//   border-radius: 10px;
+// }
+
+// .search-form-control .form-control:focus {
+//   border: 1px solid $lightblue;
+//   outline: none !important;
+//   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+// }
+
+// .search-box {
+//   border-radius: 4px !important;
+//   padding: 32px 24px 70px !important;
+//   width: 425px !important;
+//   box-shadow: rgba(0, 0, 0, 0.7) 0px 16px 40px !important;
+//   backdrop-filter: blur(2px);
+
+
+// }
+
+// select > option{
+//   font-family: $body-font;
+// }
+
+
