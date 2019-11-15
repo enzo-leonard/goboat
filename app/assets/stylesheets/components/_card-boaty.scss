@@ -1,0 +1,103 @@
+.card-boaty {
+ border-radius: 15px;
+ overflow: hidden;
+ background: white;
+ // box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+ justify-content:center;
+ transition: all 1s ease;
+ position: relative;
+ border: 1px solid $lightblue;
+
+   img {
+     height: 200px;
+     width: 100%;
+     object-fit: cover;
+   }
+
+   h2 {
+    color:$blackblue;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 250px
+  }
+
+  p {
+    color:$blackblue;
+    font-size: 16px;
+    margin: 0;
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+  .fx{
+    position:absolute;
+    top: 0;
+    left:0;
+    height:100%;
+    width:100%;
+    opacity: 0;
+    transition: all 0.7s ease;
+    z-index: 2;
+  }
+
+  &:hover .fx {
+    background-color: $white;
+    opacity:.1;
+    transition: all 0.4s ease;
+  }
+
+    &:hover {
+    transform: translate(0px, -5px);
+    transition: all 0.4s ease;
+    box-shadow: 3px 10px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+.card-boaty-infos .city{
+  font-size: 16px !important;
+  margin: 0;
+  color:$darkblue;
+  align-self: flex-end;
+  font-size: 12px;
+  opacity: 1;
+  margin: 0;
+}
+
+.card-boaty .card-boaty-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  min-height: 90px;
+}
+
+.card-boaty-infos .card-boaty-user {
+  position: absolute;
+  right: 16px;
+  top: 15px;
+  width: 40px;
+}
+
+.card-boaty-capacity .card-boaty-capacity {
+  position: absolute;
+  right: 16px;
+  top: 15px;
+  width: 40px;
+}
+
+.card-boaty-pricing{
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color:$grayblue;
+  align-self: flex-end;
+}
+
+
