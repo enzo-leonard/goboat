@@ -7,6 +7,3 @@ import initBooking from "../components/initBooking";
 initMapbox();
 initStickybar();
 initBooking();
-
-
-

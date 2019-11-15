@@ -136,7 +136,13 @@
      width: 100%;
      object-fit: cover;
    }
-
+    .avatar-img {
+      width: 40px!important;
+      height: 40px!important;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+    }
    h2 {
     color:$blackblue;
     font-size: 16px;
@@ -207,6 +213,19 @@
   top: 15px;
   width: 40px;
 }
+
+.name-city {
+  margin-left: 30px;
+  width: 60%;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.name-city-boats {
+  margin-left: 30px;
+  width: 80%;
 
 .card-trip-capacity .card-trip-capacity {
   position: absolute;

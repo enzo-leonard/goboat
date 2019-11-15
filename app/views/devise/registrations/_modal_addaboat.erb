@@ -8,7 +8,7 @@
         </button>
       </div>
       <div>
-        <h2>Add a new boat</h2>
+        <h2 style="text-align:center">Add a new boat</h2>
       <div class="modal-body">
         <%= simple_form_for(Boat.new) do |f| %>
           <%= f.error_notification %>
@@ -36,7 +36,7 @@
           </div>
           <div class="modal-footer">
             <div class="form-actions">
-              <%= f.button :submit %>
+              <%= f.button :submit, class: "btn btn-primary"%>
             </div>
           </div>
         <% end %>

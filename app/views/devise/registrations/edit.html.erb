@@ -1,13 +1,15 @@
-<div>
+<div class="container">
   <div class="flex">
     <div class="sidebar">
-      <p><img class="avatar" src="<%= current_user.photo %>" alt=""><%= current_user.first_name %></p>
-      <p>My profile</p>
-      <p>My Bookings</p>
-      <p>My Sailors</p>
-      <p>My Boats</p>
-      <div><%= link_to  icon('fas', 'sign-out-alt', 'log out') , destroy_user_session_path , method: :delete, data: { confirm: "Yo" }, class: 'dropdown-item' %></div>
-      <% current_user %>
+      <div class="sidebar-inner">
+        <p style="text-align:center;"><img class="avatar-large" src="<%= current_user.photo %>" alt=""><strong><%= current_user.first_name.capitalize %></strong></p>
+        <hr>
+        <a href=""><p><i class="fa fa-user"></i>  My profile</p></a>
+        <a href=""><p><i class="fa fa-calendar-check"></i>  My Bookings</p></a>
+        <a href=""><p><i class="fa fa-ship"></i>  My Boats</p></a>
+        <div><%= link_to  icon('fas', 'sign-out-alt', 'log out') , destroy_user_session_path , method: :delete, data: { confirm: "Yo" }, class: 'dropdown-item logout' %></div>
+        <% current_user %>
+      </div>
     </div>
     <div class="dashboard">
       <div class="section-profil">
@@ -28,30 +30,31 @@
                         input_html: { autocomplete: "email" }%>
           </div>
           <div class="form-actions">
-            <%= f.button :submit, "Update" %>
+            <%= f.button :submit, "Update", class: "btn btn-primary" %>
           </div>
         <% end %>
       <hr>
       </div>
       <div class="section-bookings">
         <h2>My bookings</h2>
+      <hr>
       <div class="flex_boats">
         <% current_user.bookings.each do |booking| %>
-         <a href='<%= boat_path(booking) %>'>
+         <a href='<%= boat_path(booking.boat) %>'>
             <div class="card-product">
               <img src="https://<%= booking.boat.photo %>" />
               <div class="flex-bookings">
               <div class="photo-owner">
                 <img class="avatar-img" src="<%= booking.boat.user.photo %>" alt="">
+                <p style="text-align:center;"><%= booking.boat.user.last_name %></p>
               </div>
                 <div class="name-city">
                   <h2><%= booking.date_begin %></h2>
                   <p><%= booking.boat.name %></p>
-                  <p><%= booking.boat.category %> in <%= booking.boat.city %></p>
-                  <p><%= booking.boat.user.last_name %></p>
+                  <p style="font-style:italic;"><%= booking.boat.category %> à <%= booking.boat.city %></p>
                 </div>
                 <div class="price-capacity">
-                  <h2 class=""><%= booking.boat.price %>€</h2>
+                  <h2 class=""><%= booking.price %>€</h2>
                 </div>
               </div>
             </div>
@@ -68,23 +71,28 @@
       <div class='flex_h2'>
         <h2>My boats</h2><button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#modal_addaboat">+ add a boat</button>
       </div>
+      <hr>
       <div class="flex_boats">
         <% current_user.boats.each do |boat| %>
           <a href='<%= boat_path(boat) %>'>
             <div class="card-product">
-              <img src="https://<%= boat.photo %>" />
-              <div class="flex-bookings">
-                <div class="name-city">
-                  <h2><%= boat.name %></h2>
-                  <p><%= boat.category %> in <%= boat.city %></p>
+              <div class="flex-boat">
+                <div class="flex-box">
+                  <img src="https://<%= boat.photo %>" />
+                  <div class="name-city">
+                    <h2><%= boat.name %></h2>
+                    <p><%= boat.category %> in <%= boat.city %></p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-box-column">
+                <div class="edit-delete">
+                  <%= link_to "", boat_path(boat), method: :delete, data: { confirm: "Are you sure you want to delete" }, class: "fa fa-trash" %>
+                  <%= link_to "", edit_boat_path(boat), class: "fa fa-pen" %>
                 </div>
                 <div class="price-capacity">
                   <h2 class=""><%= boat.price %>€</h2>
                   <p class=""><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
-                </div>
-                <div>
-                  <%= link_to "", boat_path(boat), method: :delete, data: { confirm: "Are you sure you want to delete" }, class: "fa fa-trash" %>
-                  <%= link_to "", edit_boat_path(boat), class: "fa fa-pen" %>
                 </div>
               </div>
             </div>
@@ -97,5 +105,6 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
