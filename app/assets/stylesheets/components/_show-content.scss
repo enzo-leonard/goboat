@@ -1,3 +1,8 @@
+
+.description p{
+ margin-bottom: 0;
+}
+
 .show-container{
   display:flex;
 }
@@ -16,6 +21,7 @@
   h2{
     font-weight:600;
     text-align:center;
+    margin-bottom : 40px;
   }
   .stroke{
     width:100%;
