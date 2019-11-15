@@ -18,7 +18,8 @@ class BookingsController < ApplicationController
   def booking_params
     params_user = {user_id: current_user.id}
     params_boats = {boat_id: params[:boat_id]}
-    params.require(:booking).permit(:date_begin, :date_end, :price).merge(params_boats).merge(params_user)
+    params_dates = {date_begin: params[:daterange].split('-')[0], date_end: params[:daterange].split('-')[1]}
+    params.require(:booking).permit(:price).merge(params_boats).merge(params_user).merge(params_dates)
   end
 
 end

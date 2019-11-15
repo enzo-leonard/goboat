@@ -141,15 +141,15 @@ end
 end
 
 fetch_index(index_url1)
-# fetch_index(index_url2)
-# fetch_index(index_url3)
-# fetch_index(index_url4)
-# fetch_index(index_url5)
-# fetch_index(index_url6)
-# fetch_index(index_url7)
-# fetch_index(index_url8)
-# fetch_index(index_url9)
-# fetch_index(index_url10)
+fetch_index(index_url2)
+fetch_index(index_url3)
+fetch_index(index_url4)
+fetch_index(index_url5)
+fetch_index(index_url6)
+fetch_index(index_url7)
+fetch_index(index_url8)
+fetch_index(index_url9)
+fetch_index(index_url10)
 
 
 
@@ -160,11 +160,13 @@ puts "Creation de l'admin et ses reservations "
 admin_booking1 = Booking.new(
   date_begin: "12/09/2019",
   date_end: "12/10/2019",
+  price: 580
 )
 
 admin_booking2 = Booking.new(
   date_begin: "13/09/2019",
   date_end: "13/10/2019",
+  price: 560
 )
 
 admin_boat1 = Boat.last
