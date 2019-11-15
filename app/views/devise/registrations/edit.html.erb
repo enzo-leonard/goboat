@@ -1,72 +1,101 @@
-<div class="flex">
-  <div class="sidebar">
-    <%= @user.photo %>
-    <%= @user.first_name %>
-    <%= @user.last_name %>
-    <p>My profile</p>
-    <p>My Bookings</p>
-    <p>My Sailors</p>
-    <p>My Boats</p>
-    <p>Log out</p>
-  </div>
-  <div class="dashboard">
-    <div class="section-profil">
-    <h2>My profil</h2>
-    <hr>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
-        <div class="form-inputs">
-          <%= f.input :first_name,
-                    autofocus: true,
-                    input_html: { autocomplete: "First name" }%>
-          <%= f.input :last_name,
-                    autofocus: true,
-                    input_html: { autocomplete: "Last name" }%>
-          <%= f.input :email,
-                      required: true,
+<div>
+  <div class="flex">
+    <div class="sidebar">
+      <p><img class="avatar" src="<%= current_user.photo %>" alt=""><%= current_user.first_name %></p>
+      <p>My profile</p>
+      <p>My Bookings</p>
+      <p>My Sailors</p>
+      <p>My Boats</p>
+      <div><%= link_to  icon('fas', 'sign-out-alt', 'log out') , destroy_user_session_path , method: :delete, data: { confirm: "Yo" }, class: 'dropdown-item' %></div>
+      <% current_user %>
+    </div>
+    <div class="dashboard">
+      <div class="section-profil">
+      <h2>My profil</h2>
+      <hr>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :first_name,
                       autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Update" %>
-        </div>
-      <% end %>
-    <hr>
-    </div>
-    <div class="section-bookings">
-      <h2>My bookings</h2>
-    <div class="grid">
-      <% @boats.each do |boat| %>
-        <a href='<%= boat_path(boat) %>'>
-          <div class="">
-            <img src="https://<%= boat.photo %>" />
-            <div class="">
-              <div>
-                <h2><%= boat.name %></h2>
-                <p><%= boat.category %> in <%= boat.city %></p>
-              </div>
-              <h2 class=""><%= boat.price %>€</h2>
-              <p class=""><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
-            </div>
+                      input_html: { autocomplete: "First name" }%>
+            <%= f.input :last_name,
+                      autofocus: true,
+                      input_html: { autocomplete: "Last name" }%>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" }%>
           </div>
-        </a>
-      <% end %>
+          <div class="form-actions">
+            <%= f.button :submit, "Update" %>
+          </div>
+        <% end %>
+      <hr>
+      </div>
+      <div class="section-bookings">
+        <h2>My bookings</h2>
+      <div class="flex_boats">
+        <% current_user.bookings.each do |booking| %>
+         <a href='<%= boat_path(booking) %>'>
+            <div class="card-product">
+              <img src="https://<%= booking.boat.photo %>" />
+              <div class="flex-bookings">
+              <div class="photo-owner">
+                <img class="avatar-img" src="<%= booking.boat.user.photo %>" alt="">
+              </div>
+                <div class="name-city">
+                  <h2><%= booking.date_begin %></h2>
+                  <p><%= booking.boat.name %></p>
+                  <p><%= booking.boat.category %> in <%= booking.boat.city %></p>
+                  <p><%= booking.boat.user.last_name %></p>
+                </div>
+                <div class="price-capacity">
+                  <h2 class=""><%= booking.boat.price %>€</h2>
+                </div>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      </div>
+      <hr>
+      </div>
+      <%# <div class="section-sailors">
+        <h2>My sailors</h2>
+      <hr>
+      </div> %>
+      <div class="section-boats">
+      <div class='flex_h2'>
+        <h2>My boats</h2><button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#modal_addaboat">+ add a boat</button>
+      </div>
+      <div class="flex_boats">
+        <% current_user.boats.each do |boat| %>
+          <a href='<%= boat_path(boat) %>'>
+            <div class="card-product">
+              <img src="https://<%= boat.photo %>" />
+              <div class="flex-bookings">
+                <div class="name-city">
+                  <h2><%= boat.name %></h2>
+                  <p><%= boat.category %> in <%= boat.city %></p>
+                </div>
+                <div class="price-capacity">
+                  <h2 class=""><%= boat.price %>€</h2>
+                  <p class=""><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
+                </div>
+                <div>
+                  <%= link_to "", boat_path(boat), method: :delete, data: { confirm: "Are you sure you want to delete" }, class: "fa fa-trash" %>
+                  <%= link_to "", edit_boat_path(boat), class: "fa fa-pen" %>
+                </div>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      </div>
+      <br>
+      <div>
+      <%= render 'modal_addaboat' %>
+      </div>
     </div>
-    <hr>
-    </div>
-    <div class="section-sailors">
-      <h2>My sailors</h2>
-    <hr>
-    </div>
-    <div class="section-boats">
-      <h2>My boats</h2>
-    <hr>
-    </div>
+  </div>
+</div>
 </div>

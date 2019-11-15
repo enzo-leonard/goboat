@@ -27,6 +27,17 @@
   padding: 16px;
 }
 
+.flex_h2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.flex_boats {
+  display: flex;
+  flex-direction: column;
+}
+
 .card-category {
 
   background-size: cover;
@@ -211,4 +222,3 @@
   color:$grayblue;
   align-self: flex-end;
 }
-
