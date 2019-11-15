@@ -76,23 +76,23 @@
         <% current_user.boats.each do |boat| %>
           <a href='<%= boat_path(boat) %>'>
             <div class="card-product">
+              <img src="https://<%= boat.photo %>" />
               <div class="flex-boat">
                 <div class="flex-box">
-                  <img src="https://<%= boat.photo %>" />
                   <div class="name-city">
                     <h2><%= boat.name %></h2>
                     <p><%= boat.category %> in <%= boat.city %></p>
                   </div>
                 </div>
-              </div>
-              <div class="flex-box-column">
-                <div class="edit-delete">
-                  <%= link_to "", boat_path(boat), method: :delete, data: { confirm: "Are you sure you want to delete" }, class: "fa fa-trash" %>
-                  <%= link_to "", edit_boat_path(boat), class: "fa fa-pen" %>
-                </div>
-                <div class="price-capacity">
-                  <h2 class=""><%= boat.price %>€</h2>
-                  <p class=""><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
+                <div class="flex-box-column">
+                  <div class="edit-delete">
+                    <%= link_to "", boat_path(boat), method: :delete, data: { confirm: "Are you sure you want to delete" }, class: "fa fa-trash" %>
+                    <%= link_to "", edit_boat_path(boat), class: "fa fa-pen" %>
+                  </div>
+                  <div class="price-capacity">
+                    <h2 class=""><%= boat.price %>€</h2>
+                    <p class=""><i class="fas fa-user-friends margin"></i><%= boat.capacity %></p>
+                  </div>
                 </div>
               </div>
             </div>

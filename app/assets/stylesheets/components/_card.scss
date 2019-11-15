@@ -1,3 +1,7 @@
+#sticky-header {
+
+}
+
 .sticky-header {
   position: fixed;
   width: 100%;
@@ -12,182 +16,41 @@
 
 #search-index {
   margin: 0 auto;
-  margin-top: 10px;
-  // max-width: 1600px;
-  max-width: 1140px;
+  margin-top: 0px;
+  max-width: 1600px;
   margin-top: 10px;
 }
-
 
 .grid {
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 16px;
   padding: 16px;
 }
 
-.card-category {
-
-  background-size: cover;
-  background-position: center;
-  margin:0;
-  height: 250px;
-  list-style: none;
-  text-align: center;
+.flex_h2 {
   display: flex;
-  justify-content:center;
-  align-items :center;
-  /*when im out*/
-  transition: background-color 3s ease;
-  position: relative;
-  z-index: 1;
-
-  &:hover{
-    /*when im in*/
-    transition: background-color 1s ease;
-  }
-
-
-
-  h3 {
-    color: $white;
-    font-weight: bold;
-    font-family: $headers-font;
-    font-size: 1.6rem;
-    position: absolute;
-    bottom: 0;
-    opacity: 0;
-    transition: all 2s ease;
-    z-index: 3;
-  }
-
-  &:hover h3{
-    bottom: 100px;
-    opacity: 1;
-    transition: all 1s ease;
-  }
-
-  .fx{
-    position:absolute;
-    top: 0;
-    left:0;
-    height:100%;
-    width:100%;
-    opacity: 1;
-    transition: all 3s ease;
-    z-index: 2;
-  }
-  &:hover .fx{
-    background-color: $blue;
-    opacity:.7;
-    transition: all 1s ease;
-  }
-  a{
-    position:absolute;
-    top: 0;
-    left:0;
-    height:100%;
-    width:100%;
-    z-index: 4;
-  }
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
+.flex_boats {
+  display: flex;
+  flex-direction: column;
+}
 
 .search_index {
   display:flex;
   position: relative;
 }
 
-
-.margin {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.field {
-  width: 21%;
-  margin-right: 10px;
-}
-
-
-.card-trip {
- border-radius: 20px;
- overflow: hidden;
- background: white;
- // box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
- justify-content:center;
- transition: all 1s ease;
- position: relative;
-
-   img {
-     height: 200px;
-     width: 100%;
-     object-fit: cover;
-   }
-
-   h2 {
-    color:$blackblue;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 250px
-  }
-
-  p {
-    color:$blackblue;
-    font-size: 16px;
-    margin: 0;
-    font-size: 12px;
-    opacity: .7;
-    margin: 0;
-  }
-
-  .fx{
-    position:absolute;
-    top: 0;
-    left:0;
-    height:100%;
-    width:100%;
-    opacity: 0;
-    transition: all 0.7s ease;
-    z-index: 2;
-  }
-
-  &:hover .fx {
-    background-color: $white;
-    opacity:.1;
-    transition: all 0.4s ease;
-  }
-
-    &:hover {
-    transform: translate(0px, -5px);
-    transition: all 0.4s ease;
-    box-shadow: 3px 10px 15px rgba(0, 0, 0, 0.2);
-  }
-}
-
-
-.card-trip-infos .city{
-  font-size: 16px !important;
-  margin: 0;
-  color:$darkblue;
-  align-self: flex-end;
-  font-size: 12px;
-  opacity: 1;
-  margin: 0;
-}
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
-  min-height: 90px;
 }
 
 .card-trip-infos .card-trip-user {
@@ -204,11 +67,95 @@
   width: 40px;
 }
 
-.card-trip-pricing{
+.margin {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.field {
+  width: 21%;
+  margin-right: 10px;
+}
+
+
+ .card-trip {
+   overflow: hidden;
+   background: white;
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+ }
+
+ .card-trip>img {
+   height: 200px;
+   width: 100%;
+   object-fit: cover;
+ }
+
+ .card-trip h2 {
+   font-size: 16px;
+   font-weight: bold;
+   margin: 0;
+ }
+
+ .card-trip p {
+   font-size: 12px;
+   opacity: .7;
+   margin: 0;
+ }
+
+ .card-product {
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-product img {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+}
+
+.avatar-img {
+  width: 40px!important;
+  height: 40px!important;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card-product h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-  color:$grayblue;
-  align-self: flex-end;
 }
 
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+
+.name-city {
+  margin-left: 30px;
+  width: 60%;
+}
+
+.flex-box {
+  display: flex;
+  height: 120px;
+  padding-top: 20px;
+}
+
+.name-city-boats {
+  margin-left: 30px;
+  width: 80%;
+}
