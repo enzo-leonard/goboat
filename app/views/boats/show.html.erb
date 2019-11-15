@@ -48,7 +48,7 @@
     <div class="booking-container">
       <h2 id=title-booking>Rent this boat</h2>
       <%= simple_form_for [@boat, Booking.new] do |f| %>
-      <%= text_field_tag :daterange, params[:date_begin], class: "form-control string required field", placeholder: "start - end"%>
+      <%= text_field_tag :daterange, params[:date_range], class: "form-control string required field", placeholder: "start - end"%>
           <%= f.input :date_begin, placeholder: "date du debut "%>
           <%= f.input :date_end, placeholder: "date de fin"%>
           <input id=sended-price name=booking[price] type=hidden value=<%= @boat.price %>>
@@ -78,7 +78,7 @@
           });
         </script>
         <!-- end of script to display calendar -->
-</div> 
+</div>
 
 
 

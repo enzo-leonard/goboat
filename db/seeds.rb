@@ -160,11 +160,13 @@ puts "Creation de l'admin et ses reservations "
 admin_booking1 = Booking.new(
   date_begin: "12/09/2019",
   date_end: "12/10/2019",
+  price: 580
 )
 
 admin_booking2 = Booking.new(
   date_begin: "13/09/2019",
   date_end: "13/10/2019",
+  price: 560
 )
 
 admin_boat1 = Boat.last
