@@ -7,7 +7,7 @@ class BoatsController < ApplicationController
   end
 
   def index
-    date_begin = params[:daterange].split('-')[0]
+    date_begin = params[:daterange].split('-')[0] if params[:date_range].present?
     @sql =  "boats.date_end - current_date > 0 OR boats.date_end is null "
     @sql += "and Boats.city ILIKE '#{'%'+params[:city]+'%'}' " if params[:city].present?
     @sql += "and Boats.price <= #{params[:price].to_i}" if params[:price].present?
