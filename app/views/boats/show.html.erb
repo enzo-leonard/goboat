@@ -1,102 +1,77 @@
 <div class="show">
   <div class="show-container">
-    <div class="row">
-      <div class="col-8 p-0">
-        <img class=img-show src="https://<%= @boat.photo %>" />
-      <div class="header-show">
-        <div class="left">
-          <h1><%= @boat.name %> </h1>
-          <p>à <%= @boat.city %> </p>
-        </div>
-        <div class="right">
-        <p><%= @boat.user.username %><img src='<%= @boat.user.photo %>' class='avatar'></p>
-        </div>
-      </div>
-        <h2>Description:</h2>
-        <div class="description">
-          <%= simple_format(@boat.description) %>
-        </div>
-        <div id=long class="hidden"><%=@boat.lat%></div>
-        <div id=lat class="hidden"><%=@boat.long%></div>
-        <div id="map"></div>
-        <br>
-        <p>
-
-          <%= @boat.user.username %>
-          <hr>
-          <%= @boat.user.description %>
-          <div id="price" class=hidden><%= @boat.price %></div>
-        </p>
-
-        <%#= link_to 'Edit', edit_boat_path(@boat) %>
-
-        <h2> Reviews </h2>
-        <br>
-        <div class="gallery-content">
-        <div class="myslides fade-slide" data-aos="fade-up" style="display: block;">
-          <div class="">
-            <div class="numbertext">1 / 3</div>
-            <% @boat.reviews.each do |review| %>
-            <img src='<%= review.user.photo%>' class="avatar-large"/>
-              <div class="review">
-                <img src='<%= review.user.photo%>' class="avatar-large"/>
-                <div class="review-content">
-                <p class='date'><small>9th January</small></p>
-                <p class="stars">review.star</p>
-                <p class='description'><%= review.input%></p>
-                </div>
-              </div>
-            <%end%>
+    <div class="show-content">
+      <p id="notice"><%= notice %></p>
+      <img class=img-show src="https://<%= @boat.photo %>" />
+      <div class="owner"><img class="avatar-large" src="<%= @boat.user.photo %>"/>
+        <div class="owner-infos">
+          <div class="owner-boat">
+            <h1><%= @boat.name.capitalize %></h1>
+            <div class="capacity"><i class="fas fa-user-friends margin"> </i><%= @boat.capacity%></div>
           </div>
-        </div>
-      <div class="gallery-right col-xs-12 col-sm-12 col-md-8">
-        <div class="gallery-content-nav">
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <div class="gallery-nav" style="text-align:center">
-          <span class="dot active" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
+          <p> propriétaire : <strong><%= @boat.user.username %></strong></p>
         </div>
       </div>
+      <div class="spacer"></div>
+      <h2>Description</h2>
+      <div class="description">
+        <%= simple_format(@boat.description) %>
+      </div>
+      <div id=long class="hidden"><%=@boat.lat%></div>
+      <div id=lat class="hidden"><%=@boat.long%></div>
+      <div id="map"></div>
+      <br>
+      <p>
+        <div id="price" class=hidden><%= @boat.price %></div>
+      </p>
+
+      <%#= link_to 'Edit', edit_boat_path(@boat) %>
+
+      <h2> Reviews </h2>
+      <% @boat.reviews.each_with_index do |item, index| %>
+      <% if index > 2 && index < 12 %>
+      <div class="review">
+        <img src='<%= item.user.photo%>' class="avatar-large"/>
+        <div class="review-content">
+          <p class='date'><small>9 Janvier</small></p>
+          <p class="stars"><%= stars = rand(1..5) %></p>
+          <p class='description'><%= item.input%></p>
+        </div>
+      </div>
+      <%end%>
+      <%end%>
+
     </div>
-    </div>
-    <div class="col-4">
-    <div class="booking-container">
-      <h2 id=title-booking>Rent this boat</h2>
+    <div class="show-booking">
+      <h2 id=title-booking>Louer ce bateau</h2>
       <%= simple_form_for [@boat, Booking.new] do |f| %>
-      <%= text_field_tag :daterange, params[:date_range], class: "form-control string required field", placeholder: "start - end"%>
-          <%= f.input :date_begin, placeholder: "date du debut "%>
-          <%= f.input :date_end, placeholder: "date de fin"%>
-          <input id=sended-price name=booking[price] type=hidden value=<%= @boat.price %>>
-          <hr>
-          <div class="details">
-            <h3>Details</h3>
-            <p>Number of day : <em id=nb-day><em></p>
-            <p class=align-right><b id=prix><%= @boat.price %></b>€</p>
-          </div>
-          <a id="btn-prix">voir prix</a>
-
-          <%= f.submit "Reserver", class: "btn btn-primary center", id: "commit" %>
+      <%= text_field_tag :daterange, params[:date_begin], class: "form-control string required field", placeholder: "start - end"%>
+     <!--      <%= f.input :date_begin, placeholder: "date du debut "%>
+      <%= f.input :date_end, placeholder: "date de fin"%> -->
+      <input id=sended-price name=booking[price] type=hidden value=<%= @boat.price %>>
+      <hr>
+      <div class="details">
+        <h3>Détails</h3>
+        <p>Jours : <em id=nb-day><em></p>
+          <p><b id=prix><%= @boat.price %></b>€</p>
+        </div>
+        <%= f.submit "Reserver", class: "btn btn-primary right", id: "commit" %>
         <% end %>
       </div>
     </div>
-  </div>
-</div>
-      <!-- script to display calendar -->
-        <script>
-          $(function() {
-            $('input[name="daterange"]').daterangepicker({
+    <!-- script to display calendar -->
+    <script>
+      $(function() {
+        $('input[name="daterange"]').daterangepicker({
 
-              opens: 'center'
-            }, function(start, end, label) {
-              console.log(start, end);
-            });
-          });
-        </script>
-        <!-- end of script to display calendar -->
-</div>
+          opens: 'center'
+        }, function(start, end, label) {
+          console.log(start, end);
+        });
+      });
+    </script>
+    <!-- end of script to display calendar -->
+  </div>
 
 
 
