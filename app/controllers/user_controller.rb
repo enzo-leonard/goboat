@@ -13,6 +13,7 @@ class UserController < ApplicationController
   end
 
   def create
+    raise
     @user = User.new(user_params)
 
     respond_to do |format|

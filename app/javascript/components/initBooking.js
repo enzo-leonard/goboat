@@ -49,6 +49,35 @@ const initBooking = () => {
 
     return true;
   });
+<<<<<<< HEAD
+=======
+
+
+  const commit = document.querySelector('form');
+
+
+
+
+   commit.addEventListener('click', (event) => {
+     event.preventDefault()
+     event
+   })
+
+   $('form').submit(function () {
+     const container = document.querySelector('.booking-container')
+     const title = document.querySelector('#title-booking')
+     console.log(title)
+     title.innerHTML = "Boat booked !"
+     title.style.color = 'white'
+     container.style.border = "2px solid green"
+     container.style.height = "70px";
+
+     return true;
+   });
+
+
+
+>>>>>>> 124c4c9c2091e9954cd3620acf02ebeec036ed9b
 }
 
 export default initBooking

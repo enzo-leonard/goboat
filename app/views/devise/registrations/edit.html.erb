@@ -4,16 +4,16 @@
       <div class="sidebar-inner">
         <p style="text-align:center;"><img class="avatar-large" src="<%= current_user.photo %>" alt=""><strong><%= current_user.first_name.capitalize %></strong></p>
         <hr>
-        <a href=""><p><i class="fa fa-user"></i>  My profile</p></a>
-        <a href=""><p><i class="fa fa-calendar-check"></i>  My Bookings</p></a>
-        <a href=""><p><i class="fa fa-ship"></i>  My Boats</p></a>
+        <a href=""><p><i class="fa fa-user"></i>  Mon profil</p></a>
+        <a href=""><p><i class="fa fa-calendar-check"></i>  Mes réservations</p></a>
+        <a href=""><p><i class="fa fa-ship"></i>  Mes bateaux</p></a>
         <div><%= link_to  icon('fas', 'sign-out-alt', 'log out') , destroy_user_session_path , method: :delete, data: { confirm: "Yo" }, class: 'dropdown-item logout' %></div>
         <% current_user %>
       </div>
     </div>
     <div class="dashboard">
       <div class="section-profil">
-      <h2>My profil</h2>
+      <h2>Mon profil</h2>
       <hr>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
@@ -36,7 +36,7 @@
       <hr>
       </div>
       <div class="section-bookings">
-        <h2>My bookings</h2>
+        <h2>Mes réservations</h2>
       <hr>
       <div class="flex_boats">
         <% current_user.bookings.each do |booking| %>
@@ -69,7 +69,7 @@
       </div> %>
       <div class="section-boats">
       <div class='flex_h2'>
-        <h2>My boats</h2><button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#modal_addaboat">+ add a boat</button>
+        <h2>Mes bateaux</h2><button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#modal_addaboat">+ ajouter un bateau</button>
       </div>
       <hr>
       <div class="flex_boats">

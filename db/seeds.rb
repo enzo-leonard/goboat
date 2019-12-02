@@ -36,9 +36,9 @@ end
 admin = User.new(
     email: 'admin@gmail.com',
     password: 'password',
-    username: 'admin',
-    last_name: 'admin',
-    first_name: 'admin',
+    username: 'Samantha',
+    last_name: 'Samantha',
+    first_name: 'Samantha',
     photo: 'https://images.unsplash.com/photo-1546538994-4f15d0aa966f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60',
     description: "describe your self lazy admin..."
 )
